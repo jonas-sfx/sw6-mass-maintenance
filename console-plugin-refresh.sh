@@ -2,10 +2,10 @@
 
 ## filename     console-plugin-refresh.sh
 ## description: run "console plugin:refresh" on the sw console of each shop
-##              refreshing the infoarmation
+##              refreshing the information
 ##              about your currently installed shopware plugins
 ## author:      jonas@sfxonline.de
-## =======================================================================
+## ========================================================================
 
 for row in $(cat data/shops.json | jq -r '.[] | @base64'); do
     _jq() {
