@@ -6,12 +6,17 @@
 ## =========================================================
 
 toupdate=(aws/aws-sdk-php)
+toupdate+=(doctrine/instantiator)
+toupdate+=(doctrine/persistence)
+toupdate+=(egulias/email-validator)
 toupdate+=(ezimuel/ringphp)
 toupdate+=(firebase/php-jwt)
 toupdate+=(google/auth)
 toupdate+=(google/cloud-core)
 toupdate+=(laminas/laminas-code)
+toupdate+=(phpseclib/phpseclib)
 toupdate+=(phpunit/phpunit)
+toupdate+=(ramsey/collection)
 toupdate+=(scssphp/scssphp)
 toupdate+=(sensio/framework-extra-bundle)
 
