@@ -18,7 +18,7 @@ for row in $(jq -r '.[] | @base64' data/shops.json); do
   dryrun=$(ssh "$(_jq '.host')" "cd  $(_jq '.webroot') && $(_jq '.composer') update --dry-run" 2>&1)
   echo "$dryrun"
 
-  if echo "$dryrun" | grep -q "$i"
+  if echo "$dryrun" | grep -q "$toupdate"
   then
       echo 
       echo ">>>>> FOUND '$toupdate' to update"
