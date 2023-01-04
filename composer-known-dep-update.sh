@@ -19,7 +19,7 @@ toupdate+=(phpunit/phpunit)
 toupdate+=(ramsey/collection)
 toupdate+=(scssphp/scssphp)
 toupdate+=(sensio/framework-extra-bundle)
-
+toupdate+=(zircote/swagger-php)
 
 for row in $(jq -r '.[] | @base64' data/shops.json); do
     _jq() {
