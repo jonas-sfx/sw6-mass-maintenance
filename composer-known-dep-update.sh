@@ -27,7 +27,7 @@ for row in $(cat data/shops.json | jq -r '.[] | @base64'); do
     }
   echo
   echo '-----------------'
-  echo $(_jq '.name')
+  _jq '.name'
   echo '-----------------'    
   dryrun=$(ssh $(_jq '.host') "cd  $(_jq '.webroot') && $(_jq '.composer') update --dry-run" 2>&1)
   echo "$dryrun"

@@ -13,7 +13,7 @@ for row in $(cat data/shops.json | jq -r '.[] | @base64'); do
     }
   echo
   echo '-----------------'
-  echo $(_jq '.name')
+  _jq '.name'
   echo '-----------------'
   ssh $(_jq '.host') "$(_jq '.console') plugin:refresh"
 done
