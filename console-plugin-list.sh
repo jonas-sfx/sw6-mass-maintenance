@@ -8,11 +8,11 @@
 
 for row in $(cat data/shops.json | jq -r '.[] | @base64'); do
     _jq() {
-     echo ${row} | base64 --decode | jq -r ${1}
+     echo "${row}" | base64 --decode | jq -r "${1}"
     }
   echo
   echo '-----------------'
   _jq '.name'
   echo '-----------------'
-  ssh $(_jq '.host') "$(_jq '.console') plugin:list"
+  ssh "$(_jq '.host')" "$(_jq '.console') plugin:list"
 done

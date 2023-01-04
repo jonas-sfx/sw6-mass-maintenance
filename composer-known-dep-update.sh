@@ -23,13 +23,13 @@ toupdate+=(sensio/framework-extra-bundle)
 
 for row in $(cat data/shops.json | jq -r '.[] | @base64'); do
     _jq() {
-     echo ${row} | base64 --decode | jq -r ${1}
+     echo "${row}" | base64 --decode | jq -r "${1}"
     }
   echo
   echo '-----------------'
   _jq '.name'
   echo '-----------------'    
-  dryrun=$(ssh $(_jq '.host') "cd  $(_jq '.webroot') && $(_jq '.composer') update --dry-run" 2>&1)
+  dryrun=$(ssh "$(_jq '.host')" "cd  $(_jq '.webroot') && $(_jq '.composer') update --dry-run" 2>&1)
   echo "$dryrun"
 
   for i in "${toupdate[@]}"
@@ -38,7 +38,7 @@ for row in $(cat data/shops.json | jq -r '.[] | @base64'); do
     then
         echo 
         echo ">>>>> FOUND $i to update"
-        ssh $(_jq '.host') "cd  $(_jq '.webroot') && $(_jq '.composer') update $i"
+        ssh "$(_jq '.host')" "cd  $(_jq '.webroot') && $(_jq '.composer') update $i"
     fi
   done
 done
