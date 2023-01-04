@@ -7,7 +7,7 @@
 
 toupdate=$1
 
-for row in $(cat data/shops.json | jq -r '.[] | @base64'); do
+for row in $(jq -r '.[] | @base64' data/shops.json); do
     _jq() {
      echo "${row}" | base64 --decode | jq -r "${1}"
     }
