@@ -30,6 +30,7 @@ for row in $(jq -r '.[] | @base64' data/shops.json ); do
       echo '==> doing the real update:'
       echo
       ssh "$(_jq '.host')" "cd  $(_jq '.webroot') && $(_jq '.composer') update $toupdate"
+      # TODO: SW-Console Update on each wildcard-match
     fi
 
   elif echo "$dryrun" | grep -q "$toupdate"; then
@@ -38,5 +39,13 @@ for row in $(jq -r '.[] | @base64' data/shops.json ); do
       echo '==> doing the real update:'
       echo
       ssh "$(_jq '.host')" "cd  $(_jq '.webroot') && $(_jq '.composer') update $toupdate"
+
+      # SW-Console: Determine SW-Name of Plugin and du SW-Console Update with that one
+      ssh "$(_jq '.host')" "$(_jq '.console') plugin:refresh"
+      swname=$(ssh "$(_jq '.host')" "$(_jq '.console') plugin:list --json | jq -r '.[] |  select(.composerName == "$toupdate" and .upgradeVersion != .version) .name'")
+      if [ ! -z "$swname" ]; then
+        ssh "$(_jq '.host')" "$(_jq '.console') plugin:update $swname"
+      fi
+
   fi
 done
