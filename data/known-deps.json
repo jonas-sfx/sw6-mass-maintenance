@@ -3,6 +3,7 @@
   "aws/aws-crt-php",
   "aws/aws-sdk-php",
   "composer/ca-bundle",
+  "composer/class-map-generator",
   "composer/composer",
   "composer/pcre",
   "composer/semver",
