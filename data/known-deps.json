@@ -8,6 +8,7 @@
   "composer/pcre",
   "composer/semver",
   "composer/spdx-licenses",
+  "composer/xdebug-handler",
   "doctrine/collections",
   "doctrine/dbal",
   "doctrine/deprecations",
