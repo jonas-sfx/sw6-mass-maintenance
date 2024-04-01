@@ -58,6 +58,7 @@
   "phenx/php-font-lib",
   "phenx/php-svg-li",
   "phenx/php-svg-lib",
+  "php-http/discovery",
   "php-http/message-factory",
   "phpseclib/phpseclib",
   "phpunit/php-code-coverage",
@@ -70,6 +71,7 @@
   "scssphp/scssphp",
   "sebastian/cli-parser",
   "sebastian/diff",
+  "sebastian/environment",
   "sebastian/exporter",
   "sebastian/global-state",
   "seld/jsonlint",
@@ -140,6 +142,7 @@
   "symfony/var-exporter",
   "symfony/web-profiler-bundle",
   "symfony/yaml",
+  "tecnickcom/tcpdf",
   "theseer/tokenizer",
   "zircote/swagger-php"
 ]
